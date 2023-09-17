@@ -1,9 +1,16 @@
-name: workflow_02
-on: [repository_dispatch]
+name: Deploy
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
 jobs:
-  cypress-run:
+  build:
+    name: Run API
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Triggering Wokflow 2"
-      - name: Checkout
-        uses: actions/checkout@v2
+      - name: Build API
+        run: |
+          echo "Build API"
+          sleep 10s
+
