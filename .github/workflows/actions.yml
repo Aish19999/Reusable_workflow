@@ -11,4 +11,23 @@ jobs:
         run: |
           echo "Build API"
           sleep 10s
-
+          
+  SecondJob:
+    runs-on: ubuntu-latest
+      
+    steps:
+          
+      - name: Checkout code
+        uses: actions/checkout@v2   
+         
+      - name: Dynamically Call Workflow
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+        
+          # Construct the workflow name dynamically
+          workflow_name="Aish19999/DevOps_templet/.github/workflows/javamaven.yml@main"
+          
+          # Trigger the workflow_run event for the dynamically constructed workflow name
+          echo "Triggering workflow: $workflow_name"
+          gh workflow run $workflow_name
