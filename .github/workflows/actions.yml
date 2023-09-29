@@ -28,3 +28,9 @@ jobs:
 
       - name: Test
         run: npm test
+
+      - name: Deploy if successful
+        if: ${{ success() }}
+        run: |
+         # Trigger the "Deploy" workflow in the same directory
+         gh workflow run ./deploy.yml        
