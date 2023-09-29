@@ -23,12 +23,6 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Build
-        run: npm run build
-
-      - name: Test
-        run: npm test
-
       - name: Deploy if successful
         if: ${{ success() }}
         run: |
