@@ -30,4 +30,4 @@ jobs:
         run: |
          # Trigger the "Deploy" workflow in the same directory
          pwd
-         gh workflow run Aish19999/Reusable_workflow/.github/workflows/deploy.yml        
+         gh workflow run ./deploy.yml        
